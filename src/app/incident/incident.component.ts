@@ -11,6 +11,7 @@ export class IncidentComponent implements OnInit {
   @Input() incident!: Incident;
   @Output() evt = new EventEmitter<Incident>();
   color: string = "";
+  colorname: string = "";
 
   // @HostListener('click')
   productClick(): void {
@@ -20,16 +21,25 @@ export class IncidentComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    if(this.incident.level === "FATAL"){
-      this.color = "#FFB2B2";
-    }else if(this.incident.level === "ERROR"){
-      this.color = "#F5C6C6";
+    this.color = " ";
+    if(this.incident.open === false){
+      this.color = "#FAFAFA";
+      this.colorname = "black";
+    }else {
+      if (this.incident.level === "FATAL") {
+        this.color = "#FFB2B2";
+        this.colorname = this.color
+      } else if (this.incident.level === "ERROR") {
+        this.color = "#F5C6C6";
+        this.colorname = this.color
+      } else if (this.incident.level === "MEDIUM") {
+        this.color = "#FFD3B2";
+        this.colorname = this.color
+      } else if (this.incident.level === "MINOR") {
+        this.color = "#FFECB2";
+        this.colorname = this.color
+      }
     }
-    else if(this.incident.level === "MEDIUM"){
-      this.color = "#FFD3B2";
-    }
-    else if(this.incident.level === "MINOR"){
-      this.color = "#FFECB2";
-    }
+    console.log(this.incident.id +" + "+ this.color);
   }
 }

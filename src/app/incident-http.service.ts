@@ -9,27 +9,23 @@ import {Incident} from "./incident";
 })
 export class IncidentHttpService {
 
-  private apiUrl = 'http://localhost:8080/learn/api/incidents';
+  private Url = 'http://localhost:8080/learn/api/incidents';
 
   constructor(private http: HttpClient) { }
 
-  /*add(product: Incident): Observable<Incident>{
-    return this.http.post<Incident>(this.apiUrl, product);
+  add(incident: Incident): Observable<Incident>{
+    return this.http.post<Incident>(this.Url, incident);
   }
 
-  delete(productId: number): Observable<any>{
-    return this.http.delete(this.apiUrl + '/' + productId);
+  delete(incidentId: number): Observable<any>{
+    return this.http.delete(this.Url + '/' + incidentId);
   }
-
-  update(product: Product): Observable<Product>{
-    return this.http.put<Product>(this.apiUrl + '/' + product.id, product);
-  }*/
 
   findAll(): Observable<Incident[]> {
-    return this.http.get<Incident[]>(this.apiUrl);
+    return this.http.get<Incident[]>(this.Url);
   }
-  /*
-  findOne(id: number): Observable<Product> {
-    return this.http.get<Product>(this.apiUrl + '/' + id);
-  }*/
+
+  findOne(incidentId: number): Observable<Incident> {
+    return this.http.get<Incident>(this.Url + '/' + incidentId);
+  }
 }

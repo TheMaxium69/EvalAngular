@@ -1,0 +1,46 @@
+<ul *ngIf="formSubmitted">
+  <li *ngIf="this.form.controls['titre'].invalid">Il Manque un titre</li>
+  <li *ngIf="this.form.controls['email'].invalid">Il Manque un email</li>
+  <li *ngIf="this.form.controls['progress'].invalid">Il Manque la progression</li>
+</ul>
+
+<form [formGroup]="form" (ngSubmit)="add()">
+  <div>
+    <label for="titre">Titre</label>
+    <input type="text" id="titre" formControlName="titre">
+  </div>
+  <div>
+    <label for="email">Email</label>
+    <input type="text" id="email" formControlName="email">
+  </div>
+  <div>
+    <label for="description">Description</label>
+    <input type="text" id="description" formControlName="description">
+  </div>
+  <div>
+    <label for="progress">Progress</label>
+    <input type="text" id="progress" formControlName="progress">
+  </div>
+  <div>
+    <label for="level">Level</label>
+    <select type="text" id="level" formControlName="level">
+      <option value="ERROR">ERROR</option>
+      <option value="FATAL">FATAL</option>
+      <option value="MEDIUM">MEDIUM</option>
+      <option value="MINOR">MINOR</option>
+    </select>
+  </div>
+  <div>
+    <label for="type">Type</label>
+    <select type="text" id="type" formControlName="type">
+      <option value="BUG">BUG</option>
+      <option value="FEATURE">FEATURE</option>
+    </select>
+  </div>
+  <div>
+    <label for="open">open</label>
+    <input type="checkbox" id="open" formControlName="open">
+  </div>
+
+  <button type="submit">add</button>
+</form>

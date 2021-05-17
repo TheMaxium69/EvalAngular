@@ -1,0 +1,16 @@
+<ul>
+  <li>L'id : {{incident.id}}</li>
+  <li>Le titre: {{incident.titre}}</li>
+  <li>L'email: {{incident.email}}</li>
+  <li>La description : {{incident.description}}</li>
+  <li>Le level : {{incident.level}}</li>
+  <li>Le type : {{incident.type}}</li>
+  <li>La progression en poursant : {{incident.progress}}%</li>
+  <li>La date de création : {{incident.dateCreation}}</li>
+  <li>La date de modification : {{incident.dateModification}}</li>
+  <li>Incident ouver : {{incident.open}}</li>
+</ul>
+<div class="progress">
+  <div class="progress-bar" role="progressbar" style="width: {{incident.progress}}%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+<br>

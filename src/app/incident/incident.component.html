@@ -1,6 +1,18 @@
-<h4><a [routerLink]="['/incidents', incident.id]"> {{incident.titre}}</a></h4>
-<p>{{incident.level}} {{incident.description}}</p>
+<h4><a style="color: {{colorname}}" [routerLink]="['/incident', incident.id]"> {{incident.id}} : {{incident.titre}}</a></h4>
+<p><u>Level</u> : {{incident.level}} <br>
+  <u>Type</u> : {{incident.type}}</p>
+<p style="color: grey">Créer le {{incident.dateCreation}}</p>
 
+<button [routerLink]="['/incident', incident.id]" type="button" class="btn btn-outline-secondary mr-2" placement="top" ngbTooltip="Voir Les Detail de l'incident">
+  Detail
+</button>
+<button [routerLink]="['/del', incident.id]" type="button" class="btn btn-outline-secondary mr-2" placement="top" ngbTooltip="Supprimer l'incident">
+  Supprimer
+</button>
+<br>
+<br>
 <div class="progress">
   <div class="progress-bar" role="progressbar" style="width: {{incident.progress}}%; background-color: {{color}};" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
 </div>
+<br>
+

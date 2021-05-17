@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {IncidentService} from '../incident.service';
 import {Incident} from "../incident";
 import {IncidentHttpService} from "../incident-http.service";
 
@@ -18,7 +17,6 @@ export class IncidentListComponent implements OnInit {
 
   ngOnInit(): void {
     this.IncidentService.findAll().subscribe( r => this.incidents = r);
-    console.log("test")
   }
 
   receiveChildrenEvt(incident: Incident): void {
