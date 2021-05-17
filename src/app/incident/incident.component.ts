@@ -40,6 +40,5 @@ export class IncidentComponent implements OnInit {
         this.colorname = this.color
       }
     }
-    console.log(this.incident.id +" + "+ this.color);
   }
 }
