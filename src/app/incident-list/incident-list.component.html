@@ -1,0 +1,13 @@
+<p>Debug</p>
+
+{{this.incidents | json}}
+
+
+<h3>list</h3>
+<div *ngIf="selectedProduct"  appSelectedBox theme="azur">
+  <a href="#" (click)="close()">x</a> You have selected {{selectedProduct?.titre}} ({{selectedProduct?.email}})
+</div>
+<input (input)="setFilter($event)" >
+<app-incident [incident]="incident" (evt)="receiveChildrenEvt($event)" *ngFor="let incident of filterList()"></app-incident>
+
+<a routerLink="/add">Créer votre propre produit</a>
