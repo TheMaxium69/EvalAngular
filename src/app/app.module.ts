@@ -14,14 +14,18 @@ import { HomeComponent } from './home/home.component';
 import { IncidentAddComponent } from './incident-add/incident-add.component';
 import { IncidentDetailComponent } from './incident-detail/incident-detail.component';
 import {IncidentDelComponent} from "./incident-del/incident-del.component";
+import { IdDeleteComponent } from './id-delete/id-delete.component';
+import { ErrorComponent } from './error/error.component';
 
 const approutes: Routes = [
-  {path: 'incident', component: IncidentListComponent},
   {path: 'menu', component: MenuComponent},
-  {path: 'add', component: IncidentAddComponent},
+  {path: 'incident', component: IncidentListComponent},
   {path: 'incident/:id', component: IncidentDetailComponent},
+  {path: 'del', component: IdDeleteComponent},
   {path: 'del/:id', component: IncidentDelComponent},
-  {path: '**', component: HomeComponent },
+  {path: 'add', component: IncidentAddComponent},
+  {path: '', component: HomeComponent },
+  {path: '**', component: ErrorComponent },
 ];
 
 @NgModule({
@@ -32,7 +36,9 @@ const approutes: Routes = [
     MenuComponent,
     HomeComponent,
     IncidentAddComponent,
-    IncidentDetailComponent
+    IncidentDetailComponent,
+    IdDeleteComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,

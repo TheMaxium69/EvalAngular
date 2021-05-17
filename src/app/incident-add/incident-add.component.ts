@@ -11,7 +11,6 @@ import {IncidentHttpService} from "../incident-http.service";
 })
 export class IncidentAddComponent implements OnInit {
 
-  time = {hour: 13, minute: 30};
   form: FormGroup;
   formSubmitted = false;
 
@@ -33,12 +32,15 @@ export class IncidentAddComponent implements OnInit {
 
   add(): void {
     this.formSubmitted = true;
-
-    if (this.form.valid) {
-      this.incidentService.add(this.form.value)
-        .subscribe(v => this.router.navigate(['/incident']));
-      this.form.reset();
-      this.formSubmitted = false;
+    if (this.form.value.progress < 101 && this.form.value.progress > -1) {
+      if (this.form.valid) {
+        this.incidentService.add(this.form.value)
+          .subscribe(v => this.router.navigate(['/incident']));
+        this.form.reset();
+        this.formSubmitted = false;
+      }
+    }else{
+      alert("Progress doit être entre 0 et 100");
     }
   }
 }

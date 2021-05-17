@@ -26,4 +26,9 @@ export class IncidentDelComponent implements OnInit {
     this.iService.delete(this.incident.id).subscribe(v => this.router.navigate(['/incident']));
   }
 
+  annule(): void{
+    this.router.navigate(['/incident'])
+  }
+
+
 }
